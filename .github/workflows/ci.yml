@@ -24,7 +24,7 @@ jobs:
       with:
         # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs
         base_branch: '${{ github.base_ref }}'
-        file_path: '.tools/open-architecture/governance/'
+        file_path: '.tools/open-architecture/governance/branches/${{ github.base_ref }}/'
         # TODO Glob from directory
         public_key_files: |
           .tools/open-architecture/governance/maintainers/keys/FD6DC6E941D5AB1D1F746798D98E8F4DB6F8110A.pgp
