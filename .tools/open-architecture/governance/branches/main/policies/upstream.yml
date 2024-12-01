@@ -7,11 +7,53 @@ mod_branch:
   - _mod_policy_
 
 data:
+  federation:
+    - protocol: 'publicdomainrelay/federation-git@v1'
+      data:
+        repos:
+          - namespace: 'publicdomainrelay'
+            repo: 'example-policy-maintainers'
+            shared: true
+          - namespace: 'john'
+            repo: 'my-repo'
+            shared: false
+            indexes:
+              - 'atproto'
+  namespaces:
+    publicdomainrelay:
+      indexes:
+        - name: 'github'
+          protocol: 'publicdomainrelay/index-github@v1'
+          data:
+            owner: 'publicdomainrelay'
+    john:
+      indexes:
+        - name: 'github'
+          protocol: 'publicdomainrelay/index-github@v1'
+          data:
+            owner: 'johnandersen777'
+        - name: 'atproto'
+          protocol: 'publicdomainrelay/index-atproto-v2@v1'
+          data:
+            handle: 'john.atproto.chadig.com'
+            uri: 'at://did:plc:w4524qnuvc7o6ojwjwtnvh75/app.bsky.feed.post/3lc2smchqf22i'
+            cid: 'bafyreiebgxcpue5xjy5hmpfw7mnwdc2ss7nsia2ixmdm4zd7twu6bgqbky'
+    # - namespace: 'alice'
+    #   this_repo_names:
+    #     - 'my-repo'
+    #   indexes:
+    #     - protocol: 'publicdomainrelay/index-atproto-v2@v1'
+    #       data:
+    #         handle: 'alice.atproto.chadig.com'
+    #         uri: 'at://did:plc:vjnm5ukoaxy4fi4clcqhagud/app.bsky.feed.post/3lbxet47fu22i'
+    #         cid: 'bafyreicrrqguwnmkc6djw4motgree4qdt3agfjnesv532kxxgdrlomphqi'
   owners:
     - actors:
         - '@john@chadig.com'
       emails:
         - johnandersen777@protonmail.com
+      namespaces:
+        - 'john'
       keys:
         - 'did:plc:w4524qnuvc7o6ojwjwtnvh75'
         - |-
