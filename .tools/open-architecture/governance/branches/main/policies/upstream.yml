@@ -13,6 +13,7 @@ data:
       emails:
         - johnandersen777@protonmail.com
       keys:
+        - 'did:plc:w4524qnuvc7o6ojwjwtnvh75'
         - |-
           -----BEGIN PGP PUBLIC KEY BLOCK-----
 
